@@ -30,8 +30,8 @@ class Truck extends Vehicle {
     year: number,
     weight: number,
     topSpeed: number,
-    towingCapacity: number,
-    wheels: Wheel[] = []
+    wheels: Wheel[] = [],
+    towingCapacity: number
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
     super();
@@ -43,13 +43,14 @@ class Truck extends Vehicle {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
-    this.towingCapacity = towingCapacity;
-    // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
     if (wheels.length !== 4) {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
       this.wheels = wheels;
     }
+    this.towingCapacity = towingCapacity;
+    // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
+   
   }
 
   // TODO: Implement the tow method from the AbleToTow interface
