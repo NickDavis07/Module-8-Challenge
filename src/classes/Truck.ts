@@ -45,8 +45,17 @@ class Truck extends Vehicle {
     this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
-    this.wheels = wheels.length === 4 ? wheels : [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
-    
+    if (wheels.length !== 4) {
+      // If not, initialize the array with 4 default Wheel objects
+      this.wheels = [
+        new Wheel(18, "Default Brand"),
+        new Wheel(18, "Default Brand"),
+        new Wheel(18, "Default Brand"),
+        new Wheel(18, "Default Brand")
+      ];
+    } else {
+      this.wheels = wheels;
+    }
   }
 
   // TODO: Implement the tow method from the AbleToTow interface
