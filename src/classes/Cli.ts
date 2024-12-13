@@ -181,7 +181,6 @@ class Cli {
       ])
       .then((answers) => {
         // TODO: Use the answers object to pass the required properties to the Truck constructor
-
         const truck = new Truck(
           Cli.generateVin(),
           answers.color,
@@ -328,15 +327,71 @@ class Cli {
             'Turn right',
             'Turn left',
             'Reverse',
-            'Tow a vehicle',   // Added tow action option
-            'Wheelie',         // Added wheelie action option
+            'Tow a vehicle',   
+            'Wheelie',         
             'Select or create another vehicle',
             'Exit',
           ],
         },
       ]).then((answers) => {
         // Perform the selected action logic here...
-
+        if (answers.action === 'Print details') {
+          // find the selected vehicle and print its details
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].printDetails();
+            }
+          }
+        } else if (answers.action === 'Start vehicle') {
+          // find the selected vehicle and start it
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].start();
+            }
+          }
+        } else if (answers.action === 'Accelerate 5 MPH') {
+          // find the selected vehicle and accelerate it by 5 MPH
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].accelerate(5);
+            }
+          }
+        } else if (answers.action === 'Decelerate 5 MPH') {
+          // find the selected vehicle and decelerate it by 5 MPH
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].decelerate(5);
+            }
+          }
+        } else if (answers.action === 'Stop vehicle') {
+          // find the selected vehicle and stop it
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].stop();
+            }
+          }
+        } else if (answers.action === 'Turn right') {
+          // find the selected vehicle and turn it right
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].turn('right');
+            }
+          }
+        } else if (answers.action === 'Turn left') {
+          // find the selected vehicle and turn it left
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].turn('left');
+            }
+          }
+        } else if (answers.action === 'Reverse') {
+          // find the selected vehicle and reverse it
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].reverse();
+            }
+          }
+        }
         // Implement the 'Tow a vehicle' action
         if (answers.action === 'Tow a vehicle') {
           // Find the selected truck and find a vehicle to tow
