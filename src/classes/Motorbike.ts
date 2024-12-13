@@ -65,7 +65,5 @@ class Motorbike extends Vehicle {
   }
 }
 
-//   // TODO: Add methods from the Vehicle class context
-
 // TODO: Export the Motorbike class as the default export
 export default Motorbike;
