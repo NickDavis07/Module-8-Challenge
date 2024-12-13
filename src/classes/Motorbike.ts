@@ -23,10 +23,7 @@ class Motorbike extends Vehicle {
     year: number,
     weight: number,
     topSpeed: number,
-    frontWheelDiameter: number,
-    frontWheelBrand: string,
-    rearWheelDiameter: number,
-    rearWheelBrand: string
+    wheels: Wheel[]
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
     super();
@@ -40,11 +37,11 @@ class Motorbike extends Vehicle {
     this.topSpeed = topSpeed;
 
     // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-    const frontWheel = new Wheel(frontWheelDiameter, frontWheelBrand);
-    const rearWheel = new Wheel(rearWheelDiameter, rearWheelBrand);
-
-    // Initialize the wheels array with the created Wheel objects
-    this.wheels = [frontWheel, rearWheel];
+    if (wheels.length !== 2) {
+      this.wheels = [new Wheel(), new Wheel()];
+    } else {
+      this.wheels = wheels;
+    }
   }
 
   // TODO: Implement the wheelie method
@@ -68,7 +65,7 @@ class Motorbike extends Vehicle {
   }
 }
 
-// TODO: Add methods from the Vehicle class context
+//   // TODO: Add methods from the Vehicle class context
 
 // TODO: Export the Motorbike class as the default export
 export default Motorbike;
