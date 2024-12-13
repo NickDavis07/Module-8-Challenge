@@ -23,7 +23,10 @@ class Motorbike extends Vehicle {
     year: number,
     weight: number,
     topSpeed: number,
-    wheels: Wheel[] = []
+    frontWheelDiameter: number,
+    frontWheelBrand: string,
+    rearWheelDiameter: number,
+    rearWheelBrand: string
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
     super();
@@ -37,7 +40,11 @@ class Motorbike extends Vehicle {
     this.topSpeed = topSpeed;
 
     // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-    this.wheels = wheels.length === 2 ? wheels : [new Wheel(), new Wheel()];
+    const frontWheel = new Wheel(frontWheelDiameter, frontWheelBrand);
+    const rearWheel = new Wheel(rearWheelDiameter, rearWheelBrand);
+
+    // Initialize the wheels array with the created Wheel objects
+    this.wheels = [frontWheel, rearWheel];
   }
 
   // TODO: Implement the wheelie method
@@ -61,37 +68,7 @@ class Motorbike extends Vehicle {
   }
 }
 
-//   // TODO: Add methods from the Vehicle class context
-//   // Method to start the motorbike
-//   start(): void {
-//     super.start();
-//   }
-
-//   // Method to accelerate the motorbike
-//   accelerate(change: number): void {
-//     super.accelerate(change);
-//   }
-
-//   // Method to decelerate the motorbike
-//   decelerate(change: number): void {
-//     super.decelerate(change);
-//   }
-
-//   // Method to stop the motorbike
-//   stop(): void {
-//     super.stop();
-//   }
-
-//   // Method to turn the motorbike
-//   turn(direction: string): void {
-//     super.turn(direction);
-//   }
-
-//   // Method to reverse the motorbike
-//   reverse(): void {
-//     super.reverse();
-//   }
-// }
+// TODO: Add methods from the Vehicle class context
 
 // TODO: Export the Motorbike class as the default export
 export default Motorbike;
